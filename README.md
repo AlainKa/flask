@@ -6,12 +6,12 @@ https://flask.palletsprojects.com/en/3.0.x/tutorial/
 
 ## create virtual environment
 
-python -m venv venv
+    python -m venv venv
 
-venv\scipts\activate
+    venv\scipts\activate
 
-pip install flask 
+    pip install flask 
 
 ## run flask app
 
-
+    flask --app flask-tutorial/hello run --debug
