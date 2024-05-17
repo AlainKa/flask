@@ -4,18 +4,8 @@ from flask import Flask
 
 
 def create_app(test_config=None):
-    # create and configure the app
+    """Create and configure an instance of the Flask application."""
     app = Flask(__name__, instance_relative_config=True)
-
-    from . import db
-    db.init_app(app)
-
-    from . import auth
-    app.register_blueprint(auth.bp)
-
-    from . import blog
-    app.register_blueprint(blog.bp)
-    app.add_url_rule('/', endpoint='index')
 
     app.config.from_mapping(
         SECRET_KEY='dev',
@@ -35,13 +25,19 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from . import db
-    db.init_app(app)
-
-    # a simple page that says hello
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
 
+    from . import db
+    db.init_app(app)
+
+    from . import auth
+    from . import blog
+
+    app.register_blueprint(auth.bp)
+    app.register_blueprint(blog.bp)
+
+    app.add_url_rule('/', endpoint='index')
 
     return app
