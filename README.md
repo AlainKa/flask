@@ -26,3 +26,5 @@ https://flask.palletsprojects.com/en/3.0.x/tutorial/
 
     az account set --subscription "My Demos"
     az webapp up --runtime PYTHON:3.9 --sku F1 --logs  -n flaskr2 --dryrun
+
+    az webapp update  -n flaskr2  --resource-group alainkabbouh_rg_6891  --set tags.tagName=tagValue -g MyResourceGroup
