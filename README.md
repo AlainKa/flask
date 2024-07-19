@@ -1,5 +1,12 @@
 # flask
-https://flask.palletsprojects.com/en/3.0.x/tutorial/
+
+Repo containing the exact implementation of the flaskr application following the tutorial :
+
+
+    https://flask.palletsprojects.com/en/3.0.x/tutorial/
+
+
+
 
 # setup
 
@@ -27,7 +34,8 @@ https://flask.palletsprojects.com/en/3.0.x/tutorial/
     az account set --subscription "My Demos"
     az webapp up --runtime PYTHON:3.9 --sku F1 --logs  -n flaskr2  --resource-group portfolio_france_c_rg -s portfolio --dryrun
 
-    az webapp update  -n flaskr2  --resource-group alainkabbouh_rg_6891  --set tags.tagName=tagValue -g MyResourceGroup
+    az webapp update  -n flaskr2  --resource-group portfolio_france_c_rg  
 
 
-    az webapp create --name flaskr2 --plan B1-dev --runtime PYTHON:3.9 --resource-group portfolio_france_c_rg -l
+    az webapp create --name flaskr2 --plan B1-dev --runtime PYTHON:3.9 --resource-group portfolio_france_c_rg -l  --deployment-local-git
+    az webapp up  --logs  -n flaskr2  --resource-group portfolio_france_c_rg  --runtime PYTHON:3.9 --sku B1 --dryrun
